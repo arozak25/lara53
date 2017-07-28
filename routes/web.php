@@ -13,6 +13,10 @@
 
 Route::get('/', 'PagesController@index');
 
+
+Route::get('profile', 'PagesController@profile');
+
+Route::get('setting', 'PagesController@setting');
 Route::get('users', ['uses' => 'UsersController@index']);
 Route::get('users/create', ['uses' => 'UsersController@create']);
 Route::post('users', ['uses' => 'UsersController@store']);
