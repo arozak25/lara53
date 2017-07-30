@@ -8,8 +8,11 @@ use App\User;
 class UsersController extends Controller
 {
     public function index(){
-    	$users = User::All();
-		//return $users;
+		//this will return a basic pagination nav
+    	$users = User::Paginate(10);
+		
+		//this will return a simple pagination nav
+		//$users = User::simplePaginate(10);
 		return view('admin.users.index', compact('users'));
     }
 
