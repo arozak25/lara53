@@ -28,4 +28,9 @@ class PagesController extends Controller
 	{
 		return view('pages.setting');
 	}
+
+	public function blade()
+	{
+		return view('blade.bladetest');
+	}
 }
