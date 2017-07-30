@@ -8,20 +8,9 @@ use App\User;
 class UsersController extends Controller
 {
     public function index(){
-    	$users = [
-			'0' => [
-				'first_name' => 'Abdul',
-				'last_name' => 'Rozak',
-				'country' => 'USA'
-			],
-			'1' => [
-				'first_name' => 'Abdul',
-				'last_name' => 'Cuy',
-				'country' => 'USA'
-			]
-		];
-	//return $users;
-	return view('admin.users.index', compact('users'));
+    	$users = User::All();
+		//return $users;
+		return view('admin.users.index', compact('users'));
     }
 
     public function create(){
