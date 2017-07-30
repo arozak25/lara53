@@ -7,23 +7,26 @@
 		<h3>{{ $users->total() }} total users</h3>
 
 		<b>This page displayed {{ $users->count() }} users</b>
+
 			<ul class="list-group">
-					@foreach($users as $user)
-						<li class="list-group-item" style="margin-top: 20px">
-							<span>
-								{{ $user->name }}
-							</span>
+				@forelse($users as $user)
+					<li class="list-group-item" style="margin-top: 20px">
+						<span>
+							{{ $user->name }}
+						</span>
 
-							<span class="pull-right clearfix">
-								Joined {{ $user->created_at->diffForHumans() }}
+						<span class="pull-right clearfix">
+							Joined {{ $user->created_at->diffForHumans() }}
 
-								<button class="btn btn-xs btn-primary">Follow</button>
-							</span>
-						</li>
-					@endforeach
+							<button class="btn btn-xs btn-primary">Follow</button>
+						</span>
+					</li>
 
-					{{ $users->links() }}
 			</ul>
+				@empty
+					<p> No Users Available </p>
+				@endforelse
+		{{ $users->links() }}
 		</div>
 	</div>
 @endsection
